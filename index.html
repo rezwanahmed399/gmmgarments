@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMM Garments Limited | From Yarn to Shipment — Premium Garments Manufacturing</title>
+  <meta name="description" content="GMM Garments Limited is a premier apparel manufacturing partner in Bangladesh. We produce export-grade Knitwear, Woven, and Denim for corporate brands and global fashion retailers.">
+  <meta name="theme-color" content="#1B2A41">
+  
+  <!-- Favicon Icon (Official GMM SVG Logo) -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/gmm-logo.svg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=2.1">
+</head>
+<body>
+
+  <!-- ===================================================================
+       1. TAILOR'S MEASURING TAPE (ইঞ্চি ফিতা) SCROLL INDICATOR
+       =================================================================== -->
+  <aside id="measuring-tape" aria-label="Measuring Tape Scroll Meter">
+    <div class="tape-markings">
+      <!-- Populated dynamically via app.js with real inch ticks -->
+    </div>
+    <div id="tape-needle" title="Current Stitch Position"></div>
+  </aside>
+
+  <!-- Main Page Content Wrapper (with left offset for tape on desktop) -->
+  <div class="page-wrapper">
+
+    <!-- ===================================================================
+         2. FLOATING HEADER / NAVBAR
+         =================================================================== -->
+    <header class="navbar-wrapper">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="#hero" class="brand-container">
+          <img src="assets/images/gmm-logo.svg" alt="GMM Garments LTD." class="brand-logo-img">
+          <div class="brand-text">
+            <span class="brand-name" data-i18n="brandName">GMM Garments LTD.</span>
+            <span class="brand-sub" data-i18n="brandSub">INNOVATION & CRAFTSMANSHIP</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav-menu">
+          <li><a href="#process" class="nav-link" data-i18n="navAbout">About & Process</a></li>
+          <li><a href="#products" class="nav-link" data-i18n="navProducts">Products</a></li>
+          <li><a href="#certifications" class="nav-link" data-i18n="navCertifications">Certifications</a></li>
+          <li><a href="#contact-rfq" class="nav-link" data-i18n="navContact">Contact & RFQ</a></li>
+        </ul>
+
+        <!-- Action Items (Language Toggle & CTA) -->
+        <div class="nav-actions">
+          <button id="lang-toggle-btn" class="lang-toggle-btn" type="button" aria-label="Switch Language">
+            <span id="lang-en-label" class="active">EN</span> / <span id="lang-bn-label">বাং</span>
+          </button>
+          
+          <a href="#contact-rfq" class="cta-button" data-i18n="btnQuote">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Request a Quote
+          </a>
+
+          <button class="mobile-toggle" type="button" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===================================================================
+         PREMIUM MOBILE NAVIGATION DRAWER & BACKDROP
+         =================================================================== -->
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" aria-hidden="true">
+      <div class="mobile-drawer-panel" id="mobile-drawer-panel">
+        <div class="mobile-drawer-top">
+          <div class="drawer-brand">
+            <img src="assets/images/gmm-logo.svg" alt="GMM Garments Limited" height="28">
+            <div class="drawer-brand-text">
+              <span class="drawer-company-name">GMM Garments LTD.</span>
+              <span class="drawer-company-sub">FROM YARN TO SHIPMENT</span>
+            </div>
+          </div>
+          <button class="mobile-drawer-close-btn" id="mobile-drawer-close-btn" type="button" aria-label="Close Navigation Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <div class="drawer-lang-selector">
+          <span class="drawer-lang-title">Language / ভাষা:</span>
+          <div class="drawer-lang-toggle-group">
+            <button type="button" class="drawer-lang-btn active" id="drawer-lang-en">English</button>
+            <button type="button" class="drawer-lang-btn" id="drawer-lang-bn">বাংলা</button>
+          </div>
+        </div>
+
+        <nav class="mobile-drawer-nav">
+          <a href="#hero" class="drawer-nav-item active">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span data-i18n="navHome">Home</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#process" class="drawer-nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span data-i18n="navProcess">About & Process</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#products" class="drawer-nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+            <span data-i18n="navProducts">Products</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#certifications" class="drawer-nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span data-i18n="navCert">Certifications</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#contact-rfq" class="drawer-nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span data-i18n="navContact">Contact & RFQ</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </nav>
+
+        <div class="mobile-drawer-contact-box">
+          <div class="drawer-contact-head">DIRECT FACTORY HOTLINE</div>
+          <a href="tel:+8801719086628" class="drawer-phone-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+880 1719-086628</span>
+          </a>
+          <div class="drawer-actions-grid">
+            <a href="#contact-rfq" class="drawer-btn-quote" data-i18n="btnQuote">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Request a Quote
+            </a>
+            <a href="https://wa.me/8801719086628?text=Hello%20GMM%20Garments,%20I%20would%20like%20to%20discuss%20a%20garment%20production%20inquiry." target="_blank" rel="noopener" class="drawer-btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.49.08-1.12.11-3.64-.93-3.1-1.29-5.1-4.44-5.26-4.65-.15-.21-1.26-1.68-1.26-3.2 0-1.52.8-2.27 1.08-2.58.29-.31.63-.39.84-.39.21 0 .42.01.6.01.19 0 .45-.07.7.53.26.63.89 2.16.97 2.32.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.18-.32.4-.46.54-.15.15-.31.32-.13.63.18.31.81 1.33 1.74 2.16 1.19 1.06 2.19 1.39 2.5 1.54.31.15.5.13.68-.08.19-.21.8-.93 1.01-1.25.21-.32.42-.26.7-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.77-.16 1.45z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         3. HERO SECTION (With SVG Live-Stitched Garment Outline)
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-spec-tag" data-i18n="heroSpec">
+            <span style="display:inline-block; width:8px; height:8px; background:var(--stitch-red); border-radius:50%;"></span>
+            SPEC REF: BATCH 2026 // GMM GARMENTS LIMITED
+          </div>
+
+          <h1 class="hero-title" data-i18n="heroTitle">
+            From Raw <span class="highlight-stitch">Yarn</span> to Global Shipment
+          </h1>
+
+          <p class="hero-desc" data-i18n="heroDesc">
+            A forward-thinking apparel manufacturing powerhouse. GMM Garments Limited crafts export-grade Knitwear, Woven shirts, and sustainable Denim tailored for leading corporate brands and modern retail fashion chains.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact-rfq" class="cta-button" data-i18n="btnGetQuote">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              Get a Custom Quote
+            </a>
+
+            <a href="#products" class="cta-button outline" data-i18n="btnProfile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Explore Capabilities
+            </a>
+          </div>
+
+          <!-- Quality Assurance Badges -->
+          <div class="hero-assurance">
+            <div class="hero-assurance-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span data-i18n="heroCap">AQL 1.5 Certified</span>
+            </div>
+            <div class="hero-assurance-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+              </svg>
+              <span data-i18n="heroEthical">100% Ethical Facility</span>
+            </div>
+            <div class="hero-assurance-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span data-i18n="heroFast">Fast Turnaround Time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Stitched SVG Card -->
+        <div class="hero-visual-card">
+          <div class="card-top-tag">
+            <span data-i18n="cardTopTag">TAILOR PATTERN DRAFT // CUT NO. 01</span>
+            <span>STYLE: #GMM-2026</span>
+          </div>
+
+          <div class="apparel-svg-container" aria-label="Animated stitching outline of a polo shirt">
+            <svg viewBox="0 0 320 280">
+              <!-- Seam Base Silhouette -->
+              <path class="seam-solid" d="M100 40 L70 90 L105 105 L105 240 L215 240 L215 105 L250 90 L220 40 L185 65 L135 65 Z" />
+              
+              <!-- Red Stitched Continuous Path -->
+              <path class="stitch-stroke" d="M100 40 L70 90 L105 105 L105 240 L215 240 L215 105 L250 90 L220 40 L185 65 L135 65 Z" />
+
+              <!-- Collar Stitching & Placket -->
+              <path class="stitch-stroke" d="M135 65 L160 135 L185 65" />
+              <line x1="160" y1="65" x2="160" y2="135" stroke="#C8401F" stroke-width="2" stroke-dasharray="4 3" />
+              <circle cx="160" cy="85" r="3" fill="#1B2A41" />
+              <circle cx="160" cy="110" r="3" fill="#1B2A41" />
+
+              <!-- Sleeve Hem Stitches -->
+              <line x1="70" y1="90" x2="105" y2="105" stroke="#C8401F" stroke-width="2" stroke-dasharray="4 3" />
+              <line x1="250" y1="90" x2="215" y2="105" stroke="#C8401F" stroke-width="2" stroke-dasharray="4 3" />
+
+              <!-- Bottom Hem Double Stitch -->
+              <line x1="105" y1="232" x2="215" y2="232" stroke="#C8401F" stroke-width="1.8" stroke-dasharray="5 3" />
+
+              <!-- Animated Tailor Needle Element -->
+              <g class="live-needle" transform="translate(185, 55)">
+                <line x1="0" y1="0" x2="18" y2="-24" stroke="#735C18" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="18" cy="-24" r="2.5" fill="#C8401F" />
+                <!-- Thread looping through eye -->
+                <path d="M18 -24 Q 28 -35 24 -15 Q 20 0 10 5" fill="none" stroke="#C8401F" stroke-width="1.5" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="craft-stamp">
+            <span class="dot"></span>
+            <span data-i18n="craftStamp">PRECISION CRAFTED & QUALITY INSPECTED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         4. METRICS / STATS COUNTER BAR
+         =================================================================== -->
+    <section class="metrics-section">
+      <div class="metrics-container">
+        <div class="metric-item">
+          <div class="metric-number">
+            <span data-i18n="metricCapVal">850K+</span>
+            <span class="accent">/mo</span>
+          </div>
+          <div class="metric-label" data-i18n="metricCapLabel">Monthly Production</div>
+          <div class="metric-sub" data-i18n="metricCapSub">Export & Corporate grade garments</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">
+            <span data-i18n="metricArtisansVal">1,400+</span>
+          </div>
+          <div class="metric-label" data-i18n="metricArtisansLabel">Master Craftsmen</div>
+          <div class="metric-sub" data-i18n="metricArtisansSub">Trained operators & pattern technicians</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">
+            <span data-i18n="metricQualityVal">99.4%</span>
+          </div>
+          <div class="metric-label" data-i18n="metricQualityLabel">AQL 1.5 Pass Rate</div>
+          <div class="metric-sub" data-i18n="metricQualitySub">Zero-compromise stitch precision</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">
+            <span data-i18n="metricTimeVal">15-25</span>
+            <span class="accent">Days</span>
+          </div>
+          <div class="metric-label" data-i18n="metricTimeLabel">Days Turnaround</div>
+          <div class="metric-sub" data-i18n="metricTimeSub">Rapid prototyping & sample delivery</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. PROCESS: "FROM YARN TO SHIPMENT" (সুতা থেকে শিপমেন্ট)
+         =================================================================== -->
+    <section id="process" class="process-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="processTag">END-TO-END WORKFLOW</span>
+        <h2 class="section-title" data-i18n="processTitle">The "Yarn to Shipment" Journey</h2>
+        <p class="section-desc" data-i18n="processDesc">
+          Every single stitch carries our dedication. From spinning raw cotton to final steam pressing and packaging, explore our transparent 6-stage manufacturing line.
+        </p>
+      </div>
+
+      <div class="thread-timeline-wrapper">
+        <div class="process-grid">
+          
+          <!-- Step 1: Yarn Sourcing -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 01</span>
+              </div>
+              <span class="process-iso-tag">YARN & FIBER</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/yarn_spools.jpg" alt="Rich cotton yarn cones in textile mill" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step1Title">1. Yarn Sourcing & Testing</h3>
+            <p class="process-desc" data-i18n="step1Desc">
+              Procuring premium combed cotton, organic GOTS fiber, and stretch blends with verified tensile strength and colorfastness.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step1Feat1">OEKO-TEX Class 1 yarn testing</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step1Feat2">Ring spun & combed options</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 2: Knitting & Dyeing -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 02</span>
+              </div>
+              <span class="process-iso-tag">FABRIC WEAVING</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/knitting_dyeing.jpg" alt="State-of-the-art circular knitting and eco dyeing facility" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step2Title">2. Knitting & Eco-Dyeing</h3>
+            <p class="process-desc" data-i18n="step2Desc">
+              State-of-the-art circular knitting machines for single jersey, pique, interlock and sustainable water-saving dyeing plants.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step2Feat1">Zero discharge ETP water purification</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step2Feat2">Custom Pantone color matching</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 3: CAD Pattern & Cutting -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 03</span>
+              </div>
+              <span class="process-iso-tag">AUTOMATED CAD</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/cad_cutting.jpg" alt="Automated CNC pattern cutting table and CAD grading" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step3Title">3. CAD Pattern & Cutting</h3>
+            <p class="process-desc" data-i18n="step3Desc">
+              Computerized CAD grading and automatic blade cutting systems maximize fabric yield and guarantee millimeter-accurate seam notches.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step3Feat1">Gerber / Lectra precision cutting</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step3Feat2">Grainline & shrinkage pre-shrunk</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 4: Precision Sewing -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 04</span>
+              </div>
+              <span class="process-iso-tag">JUKI & BROTHER</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/factory_sewing.jpg" alt="Garment sewing machine operators on production line" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step4Title">4. Precision Sewing & Lines</h3>
+            <p class="process-desc" data-i18n="step4Desc">
+              Multi-line automated sewing units equipped with Juki & Brother machinery. Specialized stitching for lockstitch, overlock, and flatlock.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step4Feat1">Inline quality checkpoints every 10 machines</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step4Feat2">Clean, reinforced seams and bartacks</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 5: Wash Lab & AQL Inspection -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 05</span>
+              </div>
+              <span class="process-iso-tag">AQL 1.5 CHECK</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/wash_inspection.jpg" alt="Garment export quality control laboratory and AQL 1.5 inspection" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step5Title">5. Wash Lab & AQL Inspection</h3>
+            <p class="process-desc" data-i18n="step5Desc">
+              Eco-friendly enzyme washing, ozone rinse, laser fading for denim, followed by stringent AQL 1.5/2.5 4-point visual inspection.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step5Feat1">Metal detection & needle scan on 100% units</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step5Feat2">Industrial tunnel steam finishing</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 6: Custom Packing & Logistics -->
+          <article class="process-card">
+            <div class="process-step-head">
+              <div class="process-spool-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <span>STEP 06</span>
+              </div>
+              <span class="process-iso-tag">LOGISTICS</span>
+            </div>
+            <div class="process-image-wrap">
+              <img src="assets/images/hero_craft.jpg" alt="Export garment packing, hangtagging, and container dispatch" loading="lazy">
+            </div>
+            <h3 class="process-title" data-i18n="step6Title">6. Custom Packing & Logistics</h3>
+            <p class="process-desc" data-i18n="step6Desc">
+              Custom hang-tagging, barcode labels, individual polybags, and corrugated carton boxing ready for safe regional & doorstep delivery.
+            </p>
+            <ul class="process-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step6Feat1">FSC certified packaging cartons</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span data-i18n="step6Feat2">Doorstep container & bulk dispatch</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         6. PRODUCTS: PATTERN PIECE CUTOUT CARDS
+         =================================================================== -->
+    <section id="products" class="products-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="prodTag">PRODUCTION CAPABILITIES</span>
+        <h2 class="section-title" data-i18n="prodTitle">Pattern-Cut Product Spectrum</h2>
+        <p class="section-desc" data-i18n="prodDesc">
+          Explore our specialized garment categories engineered for corporate workwear, uniforms, retail fashion, and promotional merchandise.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="product-filter-tabs">
+        <button class="filter-tab active" data-category="all" data-i18n="tabAll">All Categories</button>
+        <button class="filter-tab" data-category="knit" data-i18n="tabKnit">Knitwear</button>
+        <button class="filter-tab" data-category="woven" data-i18n="tabWoven">Woven & Shirts</button>
+        <button class="filter-tab" data-category="denim" data-i18n="tabDenim">Denim & Workwear</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+
+        <!-- Card 1: Corporate Polo Shirt (Knit) -->
+        <article class="pattern-card" data-category="knit">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 2 PIECES</span>
+          </div>
+
+          <h3 class="product-title">Executive Pique Polo</h3>
+          <div class="product-category-badge">KNITWEAR // STYLE #GMM-KT01</div>
+          <p class="product-desc">
+            Premium corporate polo shirts with knit jacquard collar, reinforced split hem, and reactive colorfast dye.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">200 Pcs / Color</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">220 GSM 100% Combed Cotton</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">14 - 18 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2: Crewneck T-Shirt & Hoodies (Knit) -->
+        <article class="pattern-card" data-category="knit">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 2 PIECES</span>
+          </div>
+
+          <h3 class="product-title">Heavyweight Fleece Hoodie</h3>
+          <div class="product-category-badge">KNITWEAR // STYLE #GMM-KT04</div>
+          <p class="product-desc">
+            Brushed organic cotton-poly blend fleece hoodie with double-needle ribbing and kangaroo pocket bartacks.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">150 Pcs / Color</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">320 GSM CVC Cotton Fleece</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">18 - 22 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3: Executive Formal Oxford Shirt (Woven) -->
+        <article class="pattern-card" data-category="woven">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 1 FRONT / 1 BACK</span>
+          </div>
+
+          <h3 class="product-title">Formal Oxford Cotton Shirt</h3>
+          <div class="product-category-badge">WOVEN // STYLE #GMM-WV12</div>
+          <p class="product-desc">
+            High-count Egyptian combed cotton woven shirts with fused collar stays, french placket, and pearlized buttons.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">250 Pcs / Color</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">130 GSM 100% Giza Cotton</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">20 - 25 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 4: Chino Trousers & Uniforms (Woven) -->
+        <article class="pattern-card" data-category="woven">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 4 PIECES</span>
+          </div>
+
+          <h3 class="product-title">Smart Stretch Chino Pant</h3>
+          <div class="product-category-badge">WOVEN // STYLE #GMM-WV08</div>
+          <p class="product-desc">
+            Durable twill pants with 2% elastane stretch, heavy-duty YKK zipper, reinforced waistband, and deep welt pockets.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">250 Pcs / Color</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">260 GSM Stretch Cotton Twill</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">22 - 25 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 5: Tailored Denim Jeans (Denim) -->
+        <article class="pattern-card" data-category="denim">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 4 PIECES</span>
+          </div>
+
+          <h3 class="product-title">Eco-Washed Denim Jeans</h3>
+          <div class="product-category-badge">DENIM // STYLE #GMM-DN03</div>
+          <p class="product-desc">
+            Authentic indigo ring-spun denim with sustainable ozone rinse, 3D whisker effects, copper rivets, and chain stitching.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">300 Pcs / Wash</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">12.5 Oz Ring Spun Denim</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">25 - 28 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 6: Denim Trucker Jacket (Denim) -->
+        <article class="pattern-card" data-category="denim">
+          <div class="notch-top-left" aria-hidden="true"></div>
+          <div class="notch-bottom-right" aria-hidden="true"></div>
+
+          <div class="grainline-bar">
+            <span>↑ GRAINLINE ↑</span>
+            <span class="cut-label">CUT 8 PIECES</span>
+          </div>
+
+          <h3 class="product-title">Classic Trucker Denim Jacket</h3>
+          <div class="product-category-badge">DENIM // STYLE #GMM-DN07</div>
+          <p class="product-desc">
+            Rugged heavyweight trucker jacket with contrast tobacco stitching, shank buttons, welt side pockets, and chest flaps.
+          </p>
+
+          <div class="spec-matrix">
+            <div class="spec-row">
+              <span class="spec-key">MOQ:</span>
+              <span class="spec-val">200 Pcs / Wash</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Fabric:</span>
+              <span class="spec-val">14 Oz Rigid Selvedge Denim</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Lead Time:</span>
+              <span class="spec-val">25 - 30 Days</span>
+            </div>
+          </div>
+
+          <div class="pattern-card-actions">
+            <button class="btn-add-rfq" type="button" data-i18n="btnAddToRfq">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Select for Quotation
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         7. CERTIFICATIONS & FACTORY: WOVEN CARE-LABEL DESIGN
+         =================================================================== -->
+    <section id="certifications" class="certifications-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="certTag">STANDARDS & COMPLIANCE</span>
+        <h2 class="section-title" data-i18n="certTitle">Woven Care-Label Certifications</h2>
+        <p class="section-desc" data-i18n="certDesc">
+          Just like the care label on your favorite garment, our certifications represent our strict commitment to environmental, ethical, and labor standards.
+        </p>
+      </div>
+
+      <!-- Care-Label Grid -->
+      <div class="care-labels-grid">
+
+        <!-- Label 1: OEKO-TEX Standard 100 -->
+        <article class="care-label-card">
+          <h3 class="care-label-title">OEKO-TEX®</h3>
+          <div class="care-label-code">STANDARD 100 // CLASS I</div>
+          <div class="care-wash-icons" aria-label="Garment wash symbols">
+            <span class="wash-icon-wrap" title="Machine Wash 30°C">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16l-2 9H6L4 11z"/><path d="M4 11c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0 2.5.5 2.5.5"/><path d="M7 6v2M12 4v4M17 6v2"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Non-Chlorine Bleach Safe">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3L12 3z"/><path d="M9 13l2 2 4-4"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Gentle Tumble Dry">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Steam Iron Warm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18c0-3.5-3-6-7-6H4c-1 0-1 1-1 2v4z"/><path d="M5 11V7c0-1.1.9-2 2-2h8"/><circle cx="10" cy="14" r="1" fill="currentColor"/><circle cx="14" cy="14" r="1" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <p class="care-label-desc">
+            Guaranteed free from harmful chemicals, azo dyes, and heavy metals. Tested safe for all skin types and infants.
+          </p>
+          <div class="care-barcode" aria-hidden="true">||| | |||| || | |||</div>
+        </article>
+
+        <!-- Label 2: GOTS Certified Organic -->
+        <article class="care-label-card">
+          <h3 class="care-label-title">GOTS ORGANIC</h3>
+          <div class="care-label-code">GLOBAL TEXTILE STD.</div>
+          <div class="care-wash-icons" aria-label="Garment wash symbols">
+            <span class="wash-icon-wrap" title="100% Organic Cotton">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 21 2c-1 4.5-1.5 6-2.1 11.8A7 7 0 0 1 11 20z"/><path d="M2 21c0-4 3-7 7-7"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Circular Recycling System">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8A2.8 2.8 0 0 1 2 16.2V14M2 14l2.5 2.5M2 14l-2.5 2.5"/><path d="M17 5h2.2A2.8 2.8 0 0 1 22 7.8V10M22 10l-2.5-2.5M22 10l2.5-2.5"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Low Water Consumption">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Clean Solar Energy">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+          </div>
+          <p class="care-label-desc">
+            Certified 100% organic cotton harvesting and processing with complete ecological traceability across the supply chain.
+          </p>
+          <div class="care-barcode" aria-hidden="true">|||| || | ||| || ||</div>
+        </article>
+
+        <!-- Label 3: ISO 9001:2015 -->
+        <article class="care-label-card">
+          <h3 class="care-label-title">ISO 9001:2015</h3>
+          <div class="care-label-code">QUALITY MANAGEMENT</div>
+          <div class="care-wash-icons" aria-label="Garment wash symbols">
+            <span class="wash-icon-wrap" title="Pattern Drafting & Spec Precision">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l18-18v18H3z"/><path d="M7 17l2-2M11 17l2-2M15 17l2-2M19 17l2-2"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Standardized Production Gear">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="AQL 1.5 Inline Inspection">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8v6M8 11h6"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Zero-Defect Quality Pass">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </span>
+          </div>
+          <p class="care-label-desc">
+            Standardized operational framework for AQL inspection, inline audits, sample precision, and continuous optimization.
+          </p>
+          <div class="care-barcode" aria-hidden="true">|| | ||| |||| | |||</div>
+        </article>
+
+        <!-- Label 4: Ethical & Fair Workplace -->
+        <article class="care-label-card">
+          <h3 class="care-label-title">ETHICAL FACTORY</h3>
+          <div class="care-label-code">FAIR WAGE & SAFETY</div>
+          <div class="care-wash-icons" aria-label="Garment wash symbols">
+            <span class="wash-icon-wrap" title="Fair Partnership & Ethics">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11l-4.5 4.5M10.5 14L8 16.5M14 6l3 3M6 14l-3-3a3 3 0 0 1 0-4.24l3-3a3 3 0 0 1 4.24 0L14 7.5"/><path d="M10 11.5L14.5 7a3 3 0 0 1 4.24 0l2 2a3 3 0 0 1 0 4.24L17 17"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Occupational Workplace Safety">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Free On-Site Healthcare">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>
+            </span>
+            <span class="wash-icon-wrap" title="Fair Living Wages & Care">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </span>
+          </div>
+          <p class="care-label-desc">
+            Zero child labor, strict fire safety compliance, on-site healthcare, day-care center, and transparent fair wages.
+          </p>
+          <div class="care-barcode" aria-hidden="true">|||| | || ||| || |||</div>
+        </article>
+
+      </div>
+
+      <!-- Factory Infrastructure Showcase Banner -->
+      <div class="factory-showcase-card">
+        <div class="factory-showcase-content">
+          <h3 data-i18n="factoryShowTitle">High-Tech Infrastructure & Clean Workplaces</h3>
+          <p data-i18n="factoryShowDesc">
+            Our factory complex integrates solar energy, advanced ventilation, ergonomic workstations, and round-the-clock safety audits to ensure premier craftsmanship in a dignified environment.
+          </p>
+          <ul class="factory-points">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="factoryPoint1">Modern Juki & Brother automated sewing lines</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="factoryPoint2">Fully operational biological ETP wastewater treatment</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="factoryPoint3">In-house lab for shrinkage, color rub & tear testing</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="factoryPoint4">Dedicated daycare, medical center & fair-wage guarantee</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="factory-showcase-gallery">
+          <div class="gallery-photo large">
+            <img src="assets/images/factory_sewing.jpg" alt="Active factory floor sewing lines with natural lighting" loading="lazy">
+          </div>
+          <div class="gallery-photo">
+            <img src="assets/images/hero_craft.jpg" alt="Tailor measuring tape and pattern cutting table" loading="lazy">
+          </div>
+          <div class="gallery-photo">
+            <img src="assets/images/yarn_spools.jpg" alt="Quality yarn cones ready for knitting" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         8. CONTACT & RFQ: HANG-TAG CARD DESIGN
+         =================================================================== -->
+    <section id="contact-rfq" class="contact-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="contactTag">GET IN TOUCH</span>
+        <h2 class="section-title" data-i18n="contactTitle">Hang-Tag Quotation & Direct Inquiry</h2>
+        <p class="section-desc" data-i18n="contactDesc">
+          Ready to produce your next batch? Fill in your project specifications or message our merchandising team directly via WhatsApp for fast responses.
+        </p>
+      </div>
+
+      <!-- Hang-Tag Styled Container -->
+      <div class="hangtag-container">
+        <!-- Punch hole with red twine string -->
+        <div class="hangtag-string" aria-hidden="true"></div>
+        <div class="hangtag-grommet" aria-hidden="true"></div>
+
+        <div class="hangtag-grid">
+          
+          <!-- Contact Information & Quick Direct Options -->
+          <div class="contact-info-col">
+            <img src="assets/images/gmm-logo.svg" alt="GMM Garments Limited" class="hangtag-logo-img">
+            <h3>GMM Garments Limited</h3>
+            <p>
+              Whether you are an established retail brand or a growing corporate enterprise, GMM Garments Limited provides tailor-made apparel manufacturing solutions with transparent pricing and punctual deliveries.
+            </p>
+
+            <div class="contact-details-list">
+              <div class="contact-detail-item">
+                <div class="detail-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <div class="detail-label">Office & Factory Location</div>
+                  <div class="detail-value">House: 888, Abdus Subhan Dhali Lane, Apollo Hospital Road, Vatara, Dhaka</div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="detail-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <div class="detail-label">Merchandising Email</div>
+                  <a href="mailto:inquiry@gmmgarments.com" class="detail-value">inquiry@gmmgarments.com</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="detail-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <div class="detail-label">Direct Hotline & WhatsApp</div>
+                  <a href="tel:+8801719086628" class="detail-value">+880 1719-086628</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Direct Card -->
+            <a href="https://wa.me/8801719086628?text=Hello%20GMM%20Garments,%20I%20would%20like%20to%20discuss%20a%20garment%20production%20inquiry." target="_blank" rel="noopener" class="whatsapp-direct-box">
+              <div class="wa-left">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.49.08-1.12.11-3.64-.93-3.1-1.29-5.1-4.44-5.26-4.65-.15-.21-1.26-1.68-1.26-3.2 0-1.52.8-2.27 1.08-2.58.29-.31.63-.39.84-.39.21 0 .42.01.6.01.19 0 .45-.07.7.53.26.63.89 2.16.97 2.32.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.18-.32.4-.46.54-.15.15-.31.32-.13.63.18.31.81 1.33 1.74 2.16 1.19 1.06 2.19 1.39 2.5 1.54.31.15.5.13.68-.08.19-.21.8-.93 1.01-1.25.21-.32.42-.26.7-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.77-.16 1.45z"/>
+                </svg>
+                <div>
+                  <div class="wa-title">Direct WhatsApp Desk</div>
+                  <div class="wa-sub">Chat instantly with Merchandising Manager</div>
+                </div>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Interactive RFQ Form -->
+          <div class="rfq-form-card">
+            <div class="rfq-form-head">
+              <div>
+                <span class="rfq-form-title" data-i18n="rfqTitle">Request for Quotation (RFQ)</span>
+                <div class="rfq-form-sub">B2B Manufacturing Specification Sheet • Fast WhatsApp Quote</div>
+              </div>
+              <span class="rfq-serial" data-i18n="rfqSerial">REF: GMM-RFQ-2026</span>
+            </div>
+
+            <!-- Category Quick-Select Pills -->
+            <div class="rfq-cat-quick-selector">
+              <span class="rfq-cat-label">Quick Category:</span>
+              <div class="rfq-cat-pills" role="tablist">
+                <button type="button" class="cat-pill active" data-category="knit">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.5a2 2 0 0 0 2 1.67H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10.86h1.14a2 2 0 0 0 2-1.67l.58-3.5a2 2 0 0 0-1.34-2.23z"/></svg>
+                  Knitwear
+                </button>
+                <button type="button" class="cat-pill" data-category="woven">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4L16 2a4 4 0 0 1-8 0L4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4z"/><line x1="12" y1="7" x2="12" y2="21"/><circle cx="12" cy="10" r="0.8" fill="currentColor"/><circle cx="12" cy="14" r="0.8" fill="currentColor"/></svg>
+                  Woven Shirts
+                </button>
+                <button type="button" class="cat-pill" data-category="denim">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2h14l1 7-3 13-5-2-5 2-3-13 1-7z"/><path d="M12 9v11"/></svg>
+                  Denim Jeans
+                </button>
+                <button type="button" class="cat-pill" data-category="uniform">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/><path d="M12 7l2 3-2 3"/></svg>
+                  Uniforms
+                </button>
+              </div>
+            </div>
+
+            <form id="rfq-form">
+              <div class="form-group-row">
+                <!-- Custom Dropdown Selector -->
+                <div class="form-group">
+                  <label for="rfq-product" class="form-label" data-i18n="labelProduct">Product Category</label>
+                  <div class="custom-select-box" id="rfq-custom-select">
+                    <!-- Native Select for accessibility & form submission -->
+                    <select id="rfq-product" class="hidden-native-select" required tabindex="-1">
+                      <option value="knit" selected>Knitwear (Polo / T-Shirt / Hoodie)</option>
+                      <option value="woven">Woven (Formal & Casual Shirts)</option>
+                      <option value="denim">Denim (Jeans & Jackets)</option>
+                      <option value="uniform">Corporate Uniforms & Workwear</option>
+                    </select>
+
+                    <!-- Custom Trigger Button -->
+                    <div class="select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                      <div class="trigger-info">
+                        <span class="trigger-icon" id="trigger-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.5a2 2 0 0 0 2 1.67H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10.86h1.14a2 2 0 0 0 2-1.67l.58-3.5a2 2 0 0 0-1.34-2.23z"/></svg>
+                        </span>
+                        <div>
+                          <div class="trigger-title" id="trigger-title">Knitwear</div>
+                          <div class="trigger-desc" id="trigger-desc">Polo Shirts, T-Shirts, Heavyweight Hoodies</div>
+                        </div>
+                      </div>
+                      <span class="trigger-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+                      </span>
+                    </div>
+
+                    <!-- Custom Dropdown Options -->
+                    <ul class="select-options-list" role="listbox">
+                      <li class="select-option-item active" data-value="knit" role="option" aria-selected="true">
+                        <span class="option-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.5a2 2 0 0 0 2 1.67H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10.86h1.14a2 2 0 0 0 2-1.67l.58-3.5a2 2 0 0 0-1.34-2.23z"/></svg>
+                        </span>
+                        <div class="option-content">
+                          <div class="option-title">Knitwear</div>
+                          <div class="option-sub">Polo Shirts, T-Shirts, Heavyweight Hoodies</div>
+                        </div>
+                        <span class="option-check">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                      </li>
+                      <li class="select-option-item" data-value="woven" role="option" aria-selected="false">
+                        <span class="option-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 4L16 2a4 4 0 0 1-8 0L4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4z"/><line x1="12" y1="7" x2="12" y2="21"/><circle cx="12" cy="10" r="0.8" fill="currentColor"/><circle cx="12" cy="14" r="0.8" fill="currentColor"/></svg>
+                        </span>
+                        <div class="option-content">
+                          <div class="option-title">Woven Shirts</div>
+                          <div class="option-sub">Formal Oxford, Business Casual Poplin, Linen</div>
+                        </div>
+                        <span class="option-check">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                      </li>
+                      <li class="select-option-item" data-value="denim" role="option" aria-selected="false">
+                        <span class="option-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2h14l1 7-3 13-5-2-5 2-3-13 1-7z"/><path d="M12 9v11"/></svg>
+                        </span>
+                        <div class="option-content">
+                          <div class="option-title">Denim Apparels</div>
+                          <div class="option-sub">Raw Indigo, Eco-Washed Jeans & Jackets</div>
+                        </div>
+                        <span class="option-check">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                      </li>
+                      <li class="select-option-item" data-value="uniform" role="option" aria-selected="false">
+                        <span class="option-icon">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/><path d="M12 7l2 3-2 3"/></svg>
+                        </span>
+                        <div class="option-content">
+                          <div class="option-title">Corporate Uniforms</div>
+                          <div class="option-sub">Executive Blazers, Hospitality & Industrial Workwear</div>
+                        </div>
+                        <span class="option-check">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Fabric Spec Input -->
+                <div class="form-group">
+                  <label for="rfq-fabric" class="form-label" data-i18n="labelFabric">Fabric Preference / GSM</label>
+                  <div class="input-icon-group">
+                    <span class="input-addon-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M20 4L8.5 15.5"/><path d="M4 20l4-4"/></svg>
+                    </span>
+                    <input type="text" id="rfq-fabric" class="form-control" placeholder="e.g. 220 GSM 100% Combed Cotton">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Estimated Quantity Slider with Preset Buttons -->
+              <div class="form-group">
+                <div class="qty-label-row">
+                  <label for="rfq-qty-slider" class="form-label" data-i18n="labelQty">Estimated Quantity (Pcs)</label>
+                  <span id="rfq-qty-val" class="quantity-display">1,000 Pcs</span>
+                </div>
+                <div class="quantity-slider-wrap">
+                  <input type="range" id="rfq-qty-slider" min="100" max="25000" step="50" value="1000" class="custom-range-slider">
+                </div>
+                <div class="qty-preset-pills">
+                  <span class="preset-label">Standard Volumes:</span>
+                  <button type="button" class="preset-pill" data-qty="500">500 Pcs</button>
+                  <button type="button" class="preset-pill active" data-qty="1000">1,000 Pcs</button>
+                  <button type="button" class="preset-pill" data-qty="2500">2,500 Pcs</button>
+                  <button type="button" class="preset-pill" data-qty="5000">5,000 Pcs</button>
+                  <button type="button" class="preset-pill" data-qty="10000">10,000+ Pcs</button>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="rfq-name" class="form-label" data-i18n="labelName">Your Full Name</label>
+                  <div class="input-icon-group">
+                    <span class="input-addon-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <input type="text" id="rfq-name" class="form-control" placeholder="e.g. Rizwan Ahmed" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="rfq-company" class="form-label" data-i18n="labelCompany">Company / Brand Name</label>
+                  <div class="input-icon-group">
+                    <span class="input-addon-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="2"/><line x1="8" y1="6" x2="8.01" y2="6"/><line x1="16" y1="6" x2="16.01" y2="6"/><line x1="12" y1="6" x2="12.01" y2="6"/><line x1="12" y1="10" x2="12.01" y2="10"/><line x1="12" y1="14" x2="12.01" y2="14"/><line x1="16" y1="10" x2="16.01" y2="10"/><line x1="16" y1="14" x2="16.01" y2="14"/><line x1="8" y1="10" x2="8.01" y2="10"/><line x1="8" y1="14" x2="8.01" y2="14"/></svg>
+                    </span>
+                    <input type="text" id="rfq-company" class="form-control" placeholder="e.g. Apex Global Retail Ltd." required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="rfq-phone" class="form-label" data-i18n="labelPhone">Phone or WhatsApp Number</label>
+                  <div class="input-icon-group">
+                    <span class="input-addon-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </span>
+                    <input type="tel" id="rfq-phone" class="form-control" placeholder="+880 1719-086628" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="rfq-email" class="form-label" data-i18n="labelEmail">Email Address</label>
+                  <div class="input-icon-group">
+                    <span class="input-addon-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </span>
+                    <input type="email" id="rfq-email" class="form-control" placeholder="inquiry@brand.com">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="rfq-notes" class="form-label" data-i18n="labelNotes">Project Notes / Specific Details</label>
+                <div class="input-icon-group textarea-group">
+                  <span class="input-addon-icon textarea-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </span>
+                  <textarea id="rfq-notes" class="form-control form-textarea" rows="3" placeholder="Target delivery deadline, packaging preferences, size ratio (S, M, L, XL)..."></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit-rfq">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                <span data-i18n="btnSubmitRfq">Generate Instant WhatsApp Quote</span>
+              </button>
+
+              <div class="form-privacy-note">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="privacyNote">Fast response guaranteed within 4-6 business hours. Tech-pack support available.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         9. FOOTER
+         =================================================================== -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="assets/images/gmm-logo.svg" alt="GMM Garments LTD." class="footer-logo-img">
+          <h4>GMM Garments Limited</h4>
+          <p>
+            From yarn to shipment — delivering premier bespoke apparel with precision craftsmanship, green sustainability, and transparent partnership.
+          </p>
+          <div class="footer-seal">
+            ISO 9001:2015 // AQL 1.5 // GREEN FACILITY
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Core Specialties</h5>
+          <ul class="footer-links">
+            <li><a href="#products">Knitwear & Polo Shirts</a></li>
+            <li><a href="#products">Heavyweight Hoodies</a></li>
+            <li><a href="#products">Executive Woven Shirts</a></li>
+            <li><a href="#products">Eco-Wash Denim Jeans</a></li>
+            <li><a href="#products">Corporate Uniforms</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">Overview</a></li>
+            <li><a href="#process">Production Workflow</a></li>
+            <li><a href="#certifications">Compliance & Lab</a></li>
+            <li><a href="#contact-rfq">Request RFQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Office & Factory Location</h5>
+          <p style="color:#9AA5B8; font-size:0.9rem; line-height:1.6;">
+            House: 888, Abdus Subhan Dhali Lane,<br>
+            Apollo Hospital Road, Vatara,<br>
+            Dhaka, Bangladesh<br><br>
+            <strong>Direct Phone:</strong><br>
+            <a href="tel:+8801719086628" style="color:var(--stitch-red); text-decoration:none; font-weight:600;">+880 1719-086628</a><br><br>
+            <strong>Operating Hours:</strong><br>
+            Mon - Sat: 8:00 AM - 7:00 PM
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 GMM Garments Limited. All rights reserved. Precision Crafted.</div>
+        <div style="font-family:var(--font-mono); font-size:0.8rem;">
+          THEME: FROM YARN TO SHIPMENT
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================================================================
+         10. MOBILE STICKY BOTTOM BAR
+         =================================================================== -->
+    <aside class="mobile-sticky-bar" aria-label="Quick Actions">
+      <div class="mobile-sticky-actions">
+        <a href="#contact-rfq" class="btn-mobile-quote">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Get Quote
+        </a>
+        <a href="https://wa.me/8801719086628?text=Hello%20GMM%20Garments,%20I%20have%20an%20inquiry" target="_blank" rel="noopener" class="btn-mobile-wa" aria-label="Direct WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.49.08-1.12.11-3.64-.93-3.1-1.29-5.1-4.44-5.26-4.65-.15-.21-1.26-1.68-1.26-3.2 0-1.52.8-2.27 1.08-2.58.29-.31.63-.39.84-.39.21 0 .42.01.6.01.19 0 .45-.07.7.53.26.63.89 2.16.97 2.32.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.18-.32.4-.46.54-.15.15-.31.32-.13.63.18.31.81 1.33 1.74 2.16 1.19 1.06 2.19 1.39 2.5 1.54.31.15.5.13.68-.08.19-.21.8-.93 1.01-1.25.21-.32.42-.26.7-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.77-.16 1.45z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js?v=2.1"></script>
+</body>
+</html>
